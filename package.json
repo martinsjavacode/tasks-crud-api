@@ -1,0 +1,27 @@
+{
+  "name": "tasks-crud-api",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Real simple Tasks CRUD REST API with JWT Authentication",
+  "main": "src",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src",
+    "start": "node src"
+  },
+  "author": "Daniel Xavier",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.15.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "packageManager": "yarn@4.9.2"
+}
