@@ -14,6 +14,7 @@ export const register = async (req, res, next) => {
         username,
         email,
         password: bcrypt.hashSync(password, 8),
+        created: new Date(),
       });
 
       await user.save();

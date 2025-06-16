@@ -28,6 +28,8 @@ export const createTask = async (req, res, next) => {
     const task = new Task({
       userId: req.userId,
       title,
+      createDate: new Date(),
+      modifyDate: new Date(),
     });
 
     await task.save();
@@ -48,7 +50,7 @@ const updateTask = (prop, value) => (req, res, next) => {
     {
       $set: {
         [prop]: value,
-        modifyDate: Date.now(),
+        modifyDate: new Date(),
       },
     },
     { new: true, useFindAndModify: false }
