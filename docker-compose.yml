@@ -1,0 +1,29 @@
+services:
+  node:
+    container_name: tasks-crud-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      MONGO_URL: mongodb://root:123124@db:27017
+      JWT_SECRET: 9qbVpwtVhOuWh9eU8eKGIfaseTp9WnrfWF4cgdpOEQdM4D086+iB5hpwBehif2mUOORXfarmnkPjwSeD2aeaKg==
+      APP_PORT: 3000
+    depends_on:
+      - db
+
+  db:
+    container_name: mongodb
+    image: mongo:8.0
+    ports:
+      - "27017:27017"
+    volumes:
+      - db_data:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=123124
+
+volumes:
+  db_data:
+    driver: local
